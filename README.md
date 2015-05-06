@@ -1,4 +1,4 @@
-# CurrentDomain
+# ActionMetaTags
 
 [![Build Status](https://travis-ci.org/andrewgr/action_meta_tags.png)](https://travis-ci.org/andrewgr/action_meta_tags)
 [![Code Climate](https://codeclimate.com/github/andrewgr/action_meta_tags/badges/gpa.svg)](https://codeclimate.com/github/andrewgr/action_meta_tags)
