@@ -17,9 +17,9 @@ module ActionMetaTags
         tags << Tags::Meta.new(attrs, &block)
       end
 
-      %i(keywords description).each do |method_name|
-        define_method method_name do |&block|
-          tags << Tags::Meta.new(name: method_name, &block)
+      %w(keywords description).each do |method|
+        define_method method do |&block|
+          tags << meta(name: method, &block)
         end
       end
 
@@ -27,9 +27,11 @@ module ActionMetaTags
         'og:title',
         'og:image',
         'og:description'
-      ].each do |property_name|
-        define_method property_name.gsub(':', '_') do |&block|
-          tags << Tags::Meta.new(property: property_name, &block)
+      ].each do |property|
+        method = property.gsub(':', '_')
+
+        define_method method do |&block|
+          tags << meta(property: property, &block)
         end
       end
     end
