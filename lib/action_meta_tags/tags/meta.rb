@@ -2,7 +2,7 @@ module ActionMetaTags
   module Tags
     class Meta
       def initialize(attrs, &block)
-        @attrs = attrs
+        @attrs    = attrs
         @renderer = block
       end
 
@@ -10,6 +10,8 @@ module ActionMetaTags
         content = object.instance_exec(&renderer)
         view.tag(:meta, attrs.merge(content: content))
       end
+
+      private
 
       attr_reader :renderer, :attrs
     end

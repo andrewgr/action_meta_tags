@@ -10,6 +10,8 @@ module ActionMetaTags
         view.content_tag(:title, content)
       end
 
+      private
+
       attr_reader :renderer
     end
   end

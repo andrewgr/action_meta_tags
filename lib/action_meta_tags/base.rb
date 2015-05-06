@@ -4,36 +4,34 @@ module ActionMetaTags
       @object = object
     end
 
-    def self.title(&block)
-      tags << Tags::Title.new(&block)
-    end
+    class << self
+      def tags
+        @tags ||= []
+      end
 
-    def self.meta(attrs, &block)
-      tags << Tags::Meta.new(attrs, &block)
-    end
+      def title(&block)
+        tags << Tags::Title.new(&block)
+      end
 
-    def self.keywords(&block)
-      tags << Tags::Meta.new(name: 'keywords', &block)
-    end
+      def meta(attrs, &block)
+        tags << Tags::Meta.new(attrs, &block)
+      end
 
-    def self.description(&block)
-      tags << Tags::Meta.new(name: 'description', &block)
-    end
+      %i(keywords description).each do |method_name|
+        define_method method_name do |&block|
+          tags << Tags::Meta.new(name: method_name, &block)
+        end
+      end
 
-    def self.og_title(&block)
-      tags << Tags::Meta.new(property: 'og:title', &block)
-    end
-
-    def self.og_image(&block)
-      tags << Tags::Meta.new(property: 'og:image', &block)
-    end
-
-    def self.og_description(&block)
-      tags << Tags::Meta.new(property: 'og:description', &block)
-    end
-
-    def self.tags
-      @tags ||= []
+      [
+        'og:title',
+        'og:image',
+        'og:description'
+      ].each do |property_name|
+        define_method property_name.gsub(':', '_') do |&block|
+          tags << Tags::Meta.new(property: property_name, &block)
+        end
+      end
     end
 
     def render(view)
