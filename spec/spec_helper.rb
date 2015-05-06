@@ -1,2 +1,1 @@
-require 'current_domain'
-require 'action_controller'
+require 'action_meta_tags'
