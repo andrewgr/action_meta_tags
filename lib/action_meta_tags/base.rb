@@ -19,19 +19,15 @@ module ActionMetaTags
 
       %w(keywords description).each do |method|
         define_method method do |&block|
-          tags << meta(name: method, &block)
+          meta(name: method, &block)
         end
       end
 
-      [
-        'og:title',
-        'og:image',
-        'og:description'
-      ].each do |property|
+      %w(og:title og:image og:description).each do |property|
         method = property.gsub(':', '_')
 
         define_method method do |&block|
-          tags << meta(property: property, &block)
+          meta(property: property, &block)
         end
       end
     end
