@@ -21,6 +21,4 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'actionpack', '~> 4'
   gem.add_development_dependency 'rubocop', '~> 0.30'
   gem.add_development_dependency 'cane', '~> 2.6', '>= 2.6.1'
-  gem.add_development_dependency 'shoulda', '~> 3.5'
-  gem.add_development_dependency 'shoulda-matchers', '~> 2.8', '>= 2.8.0'
 end
