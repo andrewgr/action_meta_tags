@@ -17,6 +17,10 @@ module ActionMetaTags
         tags << Tags::Meta.new(attrs, &block)
       end
 
+      def link(attrs, &block)
+        tags << Tags::Link.new(attrs, &block)
+      end
+
       %w(keywords description).each do |method|
         define_method method do |&block|
           meta(name: method, &block)
