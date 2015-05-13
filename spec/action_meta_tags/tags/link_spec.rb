@@ -6,7 +6,7 @@ RSpec.describe ActionMetaTags::Tags::Link do
   subject(:tag)  { described_class.new(rel: :canonical) { url } }
 
   specify do
-    expected_html = %q{<link rel="canonical" href="http://example.org/" />}
-    expect(tag.render(view, resource)).to eq(expected_html)
+    expected = '<link rel="canonical" href="http://example.org/" />'
+    expect(tag.render(view, resource)).to eq(expected)
   end
 end

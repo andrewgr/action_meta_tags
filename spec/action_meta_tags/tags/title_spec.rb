@@ -6,6 +6,6 @@ RSpec.describe ActionMetaTags::Tags::Title do
   subject(:tag)  { described_class.new { title } }
 
   specify do
-    expect(tag.render(view, resource)).to eq("<title>Title</title>")
+    expect(tag.render(view, resource)).to eq('<title>Title</title>')
   end
 end

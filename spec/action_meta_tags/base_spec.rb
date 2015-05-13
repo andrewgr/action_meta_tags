@@ -15,6 +15,6 @@ RSpec.describe ActionMetaTags::Base do
   end
 
   specify '#meta renders a meta tag' do
-    is_expected.to include(%q{<meta http-equiv="refresh" content="0;URL='http://example.com/'" />})
+    is_expected.to include(%q(<meta http-equiv="refresh" content="0;URL='http://example.com/'" />))
   end
 end

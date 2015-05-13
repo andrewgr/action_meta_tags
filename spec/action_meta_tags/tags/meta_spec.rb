@@ -6,7 +6,7 @@ RSpec.describe ActionMetaTags::Tags::Meta do
   subject(:tag)  { described_class.new(name: :description) { description } }
 
   specify do
-    expected_html = %q{<meta name="description" content="Lorem ipsum." />}
-    expect(tag.render(view, resource)).to eq(expected_html)
+    expected = '<meta name="description" content="Lorem ipsum." />'
+    expect(tag.render(view, resource)).to eq(expected)
   end
 end
