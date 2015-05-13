@@ -1,23 +1,23 @@
 require 'spec_helper'
 
+class ResourceTags < ActionMetaTags::Base
+  title { "#{title} | Site" }
+
+  meta('http-equiv' => 'refresh') { "0;URL='http://example.com/'".html_safe }
+
+  keywords       { 'key,words' }
+  description    { description }
+  og_title       { title }
+  og_image       { 'http://example.org/i.png' }
+  og_description { description }
+
+  link(
+    rel: 'search',
+    type: 'application/opensearchdescription+xml',
+    title: 'Site') { '/opensearch.xml' }
+end
+
 RSpec.describe ActionMetaTags::Base do
-  class ResourceTags < ActionMetaTags::Base
-    title { "#{title} | Site" }
-
-    meta('http-equiv' => 'refresh') { "0;URL='http://example.com/'".html_safe }
-
-    keywords       { 'key,words' }
-    description    { description }
-    og_title       { title }
-    og_image       { 'http://example.org/i.png' }
-    og_description { description }
-
-    link(
-      rel: 'search',
-      type: 'application/opensearchdescription+xml',
-      title: 'Site') { '/opensearch.xml' }
-  end
-
   let(:view)     { ActionView::Base.new }
   let(:resource) { OpenStruct.new(title: 'Title', description: 'Lorem Ipsum.') }
   subject        { ResourceTags.new(resource).render(view) }
