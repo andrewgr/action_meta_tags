@@ -10,8 +10,11 @@ RSpec.describe ActionMetaTags::Base do
   let(:resource) { OpenStruct.new(title: 'Title', description: 'description') }
   subject        { ResourceTags.new(resource).render(view) }
 
-  it { is_expected.to include('<title>Title | Site</title>') }
-  it do
+  specify '#title renders the title tag' do
+    is_expected.to include('<title>Title | Site</title>')
+  end
+
+  specify '#meta renders a meta tag' do
     is_expected.to include(%q{<meta http-equiv="refresh" content="0;URL='http://example.com/'" />})
   end
 end
