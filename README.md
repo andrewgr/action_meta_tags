@@ -4,6 +4,7 @@ Better SEO for the content pages of your Rails app with less code and better des
 
 [![Build Status](https://travis-ci.org/andrewgr/action_meta_tags.png)](https://travis-ci.org/andrewgr/action_meta_tags)
 [![Code Climate](https://codeclimate.com/github/andrewgr/action_meta_tags/badges/gpa.svg)](https://codeclimate.com/github/andrewgr/action_meta_tags)
+[![Test Coverage](https://codeclimate.com/github/andrewgr/action_meta_tags/badges/coverage.svg)](https://codeclimate.com/github/andrewgr/action_meta_tags/coverage)
 
 ## Installation
 
