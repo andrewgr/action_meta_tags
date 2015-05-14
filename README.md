@@ -1,4 +1,4 @@
-WIP
+Better SEO for the content pages of your Rails app with less code and better design.
 
 # ActionMetaTags
 
