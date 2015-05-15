@@ -19,7 +19,7 @@ end
 
 RSpec.describe ActionMetaTags::Base do
   let(:view)     { ActionView::Base.new }
-  let(:resource) { OpenStruct.new(title: 'Title', description: 'Lorem Ipsum.') }
+  let(:resource) { OpenStruct.new(title: 'Title', description: 'Lorem.') }
   subject        { ResourceTags.new(resource).render(view) }
 
   specify '#title renders the title tag' do
@@ -39,7 +39,7 @@ RSpec.describe ActionMetaTags::Base do
   end
 
   specify '#description renders the appropriate meta tag' do
-    is_expected.to include('<meta name="description" content="Lorem Ipsum." />')
+    is_expected.to include('<meta name="description" content="Lorem." />')
   end
 
   specify '#og_title renders the appropriate meta tag' do
@@ -47,10 +47,14 @@ RSpec.describe ActionMetaTags::Base do
   end
 
   specify '#og_image renders the appropriate meta tag' do
-    is_expected.to include('<meta property="og:image" content="http://example.org/i.png" />')
+    is_expected.to include(
+      '<meta property="og:image" content="http://example.org/i.png" />'
+    )
   end
 
   specify '#og_description renders the appropriate meta tag' do
-    is_expected.to include('<meta property="og:description" content="Lorem Ipsum." />')
+    is_expected.to include(
+      '<meta property="og:description" content="Lorem." />'
+    )
   end
 end
