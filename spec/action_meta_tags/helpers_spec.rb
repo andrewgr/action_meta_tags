@@ -25,18 +25,14 @@ RSpec.describe ActionMetaTags::Helpers do
     let(:resource) { OpenStruct.new(title: 'Title') }
     subject { view.meta_tags(resource) }
 
-    context do
+    context 'controller is on root level' do
       let(:params) { { controller: 'posts', action: 'show' } }
-      specify do
-        is_expected.to eq('<title>Title</title>')
-      end
+      specify { is_expected.to eq('<title>Title</title>') }
     end
 
-    context do
+    context 'controller is nested' do
       let(:params) { { controller: 'posts/comments', action: 'show' } }
-      specify do
-        is_expected.to eq('<title>Title</title>')
-      end
+      specify { is_expected.to eq('<title>Title</title>') }
     end
   end
 end
