@@ -22,8 +22,6 @@ Or install it yourself as:
 
 ## Usage
 
-TODO
-
 ## Contributing
 
 Your contribution is welcome.
